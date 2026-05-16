@@ -1,13 +1,56 @@
 <!doctype html>
-<html lang="en">
+<html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>laboratorium-5</title>
+    <title>Kalkulator urodzin</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <div id="app"></div>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-xl shadow-md w-full max-w-sm">
+      <h1 class="text-2xl font-bold text-primary mb-6 text-center">
+        Kalkulator urodzin
+      </h1>
+
+      <div class="flex flex-col gap-4">
+        <label class="flex flex-col gap-1">
+          <span class="text-sm text-gray-600">Dzień urodzenia</span>
+          <input
+            type="number" id="day"
+            min="1" max="31"
+            placeholder="np. 21"
+            class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          />
+        </label>
+
+        <label class="flex flex-col gap-1">
+          <span class="text-sm text-gray-600">Miesiąc urodzenia</span>
+          <input
+            type="number" id="month"
+            min="1" max="12"
+            placeholder="np. 5"
+            class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300"
+          />
+        </label>
+
+        <button
+          id="submitBtn"
+          class="bg-blue-300 p-4 rounded-lg font-semibold hover:bg-blue-400 transition-colors"
+        >
+          Oblicz
+        </button>
+      </div>
+    </div>
+
+    <dialog id="resultDialog" class="bg-gray-200 rounded-xl p-6 w-80 shadow-xl backdrop:bg-black/40">
+      <div class="flex justify-between items-start mb-4">
+        <h2 class="text-lg font-bold">Wynik</h2>
+        <button id="closeBtn" class="text-gray-500 hover:text-black text-xl leading-none">&times;</button>
+      </div>
+      <p id="resultText" class="text-red-600"></p>
+    </dialog>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
